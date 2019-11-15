@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAA46A7C-AA4D-4818-93C8-5CBB3C5B9FEF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Titanium</RootNamespace>
+    <AssemblyName>TitaniumLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BrotliSharpLib, Version=0.3.2.0, Culture=neutral, PublicKeyToken=3f4e2a1cd615fcb7, processorArchitecture=MSIL">
+      <HintPath>..\packages\BrotliSharpLib.0.3.3\lib\net451\BrotliSharpLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.2.0\ref\netcoreapp2.2\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CertificateHandler.cs" />
+    <Compile Include="Compression\CompressionFactory.cs" />
+    <Compile Include="Compression\DecompressionFactory.cs" />
+    <Compile Include="EventArguments\AsyncEventHandler.cs" />
+    <Compile Include="EventArguments\BeforeSslAuthenticateEventArgs.cs" />
+    <Compile Include="EventArguments\CertificateSelectionEventArgs.cs" />
+    <Compile Include="EventArguments\CertificateValidationEventArgs.cs" />
+    <Compile Include="EventArguments\LimitedStream.cs" />
+    <Compile Include="EventArguments\MultipartRequestPartSentEventArgs.cs" />
+    <Compile Include="EventArguments\SessionEventArgs.cs" />
+    <Compile Include="EventArguments\SessionEventArgsBase.cs" />
+    <Compile Include="EventArguments\TransformationMode.cs" />
+    <Compile Include="EventArguments\TunnelConnectEventArgs.cs" />
+    <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="Exceptions\BodyNotFoundException.cs" />
+    <Compile Include="Exceptions\ProxyAuthorizationException.cs" />
+    <Compile Include="Exceptions\ProxyConnectException.cs" />
+    <Compile Include="Exceptions\ProxyException.cs" />
+    <Compile Include="Exceptions\ProxyHttpException.cs" />
+    <Compile Include="Exceptions\ServerConnectionException.cs" />
+    <Compile Include="ExplicitClientHandler.cs" />
+    <Compile Include="Extensions\FuncExtensions.cs" />
+    <Compile Include="Extensions\SslExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TcpExtensions.cs" />
+    <Compile Include="Helpers\HttpHelper.cs" />
+    <Compile Include="Helpers\HttpRequestWriter.cs" />
+    <Compile Include="Helpers\HttpResponseWriter.cs" />
+    <Compile Include="Helpers\HttpWriter.cs" />
+    <Compile Include="Helpers\NativeMethods.SystemProxy.cs" />
+    <Compile Include="Helpers\NativeMethods.Tcp.cs" />
+    <Compile Include="Helpers\Network.cs" />
+    <Compile Include="Helpers\ProxyInfo.cs" />
+    <Compile Include="Helpers\RunTime.cs" />
+    <Compile Include="Helpers\SystemProxy.cs" />
+    <Compile Include="Helpers\TcpHelper.cs" />
+    <Compile Include="Helpers\WinHttp\NativeMethods.WinHttp.cs" />
+    <Compile Include="Helpers\WinHttp\WinHttpHandle.cs" />
+    <Compile Include="Helpers\WinHttp\WinHttpWebProxyFinder.cs" />
+    <Compile Include="Http2\Hpack\Decoder.cs" />
+    <Compile Include="Http2\Hpack\DynamicTable.cs" />
+    <Compile Include="Http2\Hpack\Encoder.cs" />
+    <Compile Include="Http2\Hpack\HpackUtil.cs" />
+    <Compile Include="Http2\Hpack\HuffmanDecoder.cs" />
+    <Compile Include="Http2\Hpack\HuffmanEncoder.cs" />
+    <Compile Include="Http2\Hpack\IHeaderListener.cs" />
+    <Compile Include="Http2\Hpack\StaticTable.cs" />
+    <Compile Include="Http2\Http2FrameFlag.cs" />
+    <Compile Include="Http2\Http2FrameHeader.cs" />
+    <Compile Include="Http2\Http2FrameType.cs" />
+    <Compile Include="Http2\Http2Helper.cs" />
+    <Compile Include="Http\ConnectRequest.cs" />
+    <Compile Include="Http\ConnectResponse.cs" />
+    <Compile Include="Http\HeaderCollection.cs" />
+    <Compile Include="Http\HeaderParser.cs" />
+    <Compile Include="Http\HttpWebClient.cs" />
+    <Compile Include="Http\InternalDataStore.cs" />
+    <Compile Include="Http\KnownHeaders.cs" />
+    <Compile Include="Http\Request.cs" />
+    <Compile Include="Http\RequestResponseBase.cs" />
+    <Compile Include="Http\Response.cs" />
+    <Compile Include="Http\Responses\GenericResponse.cs" />
+    <Compile Include="Http\Responses\OkResponse.cs" />
+    <Compile Include="Http\Responses\RedirectResponse.cs" />
+    <Compile Include="Http\TunnelType.cs" />
+    <Compile Include="Models\ExplicitProxyEndPoint.cs" />
+    <Compile Include="Models\ExternalProxy.cs" />
+    <Compile Include="Models\HttpHeader.cs" />
+    <Compile Include="Models\ProxyAuthenticationContext.cs" />
+    <Compile Include="Models\ProxyEndPoint.cs" />
+    <Compile Include="Models\ProxyProtocolType.cs" />
+    <Compile Include="Models\TransparentProxyEndPoint.cs" />
+    <Compile Include="Network\CachedCertificate.cs" />
+    <Compile Include="Network\CertificateManager.cs" />
+    <Compile Include="Network\Certificate\BCCertificateMaker.cs" />
+    <Compile Include="Network\Certificate\ICertificateMaker.cs" />
+    <Compile Include="Network\Certificate\WinCertificateMaker.cs" />
+    <Compile Include="Network\DebugCustomBufferedStream.cs" />
+    <Compile Include="Network\DefaultCertificateDiskCache.cs" />
+    <Compile Include="Network\ICertificateCache.cs" />
+    <Compile Include="Network\ProxyClient.cs" />
+    <Compile Include="Network\RetryPolicy.cs" />
+    <Compile Include="Network\Tcp\FakeHttpStream.cs" />
+    <Compile Include="Network\Tcp\FakeRequest.cs" />
+    <Compile Include="Network\Tcp\IStream.cs" />
+    <Compile Include="Network\Tcp\ITcpClient.cs" />
+    <Compile Include="Network\Tcp\LogItem.cs" />
+    <Compile Include="Network\Tcp\StreamWrapper.cs" />
+    <Compile Include="Network\Tcp\TcpClientConnection.cs" />
+    <Compile Include="Network\Tcp\TcpClientMy.cs" />
+    <Compile Include="Network\Tcp\TcpClientWrapper.cs" />
+    <Compile Include="Network\Tcp\TcpConnectionFactory.cs" />
+    <Compile Include="Network\Tcp\TcpServerConnection.cs" />
+    <Compile Include="Network\WinAuth\Security\Common.cs" />
+    <Compile Include="Network\WinAuth\Security\LittleEndian.cs" />
+    <Compile Include="Network\WinAuth\Security\Message.cs" />
+    <Compile Include="Network\WinAuth\Security\State.cs" />
+    <Compile Include="Network\WinAuth\Security\WinAuthEndPoint.cs" />
+    <Compile Include="Network\WinAuth\WinAuthHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyAuthorizationHandler.cs" />
+    <Compile Include="ProxyServer.cs" />
+    <Compile Include="RequestHandler.cs" />
+    <Compile Include="ResponseHandler.cs" />
+    <Compile Include="Shared\ProxyConstants.cs" />
+    <Compile Include="StreamExtended\BufferPool\DefaultBufferPool.cs" />
+    <Compile Include="StreamExtended\BufferPool\IBufferPool.cs" />
+    <Compile Include="StreamExtended\ClientHelloInfo.cs" />
+    <Compile Include="StreamExtended\Models\SslCiphers.cs" />
+    <Compile Include="StreamExtended\Models\SslExtension.cs" />
+    <Compile Include="StreamExtended\Network\ClientHelloAlpnAdderStream.cs" />
+    <Compile Include="StreamExtended\Network\CopyStream.cs" />
+    <Compile Include="StreamExtended\Network\CustomBufferedPeekStream.cs" />
+    <Compile Include="StreamExtended\Network\CustomBufferedStream.cs" />
+    <Compile Include="StreamExtended\Network\DataEventArgs.cs" />
+    <Compile Include="StreamExtended\Network\ICustomStreamReader.cs" />
+    <Compile Include="StreamExtended\Network\ICustomStreamWriter.cs" />
+    <Compile Include="StreamExtended\Network\ServerHelloAlpnAdderStream.cs" />
+    <Compile Include="StreamExtended\Network\TaskResult.cs" />
+    <Compile Include="StreamExtended\ServerHelloInfo.cs" />
+    <Compile Include="StreamExtended\SslExtensions.cs" />
+    <Compile Include="StreamExtended\SslTools.cs" />
+    <Compile Include="TransparentClientHandler.cs" />
+    <Compile Include="WebSocketHandler.cs" />
+    <Compile Include="WinAuthHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
