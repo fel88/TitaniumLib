@@ -269,7 +269,7 @@ namespace Titanium.Web.Proxy.StreamExtended.Network
             {
                 return -1;
             }
-            
+
             return streamBuffer[bufferPos + index];
         }
 
@@ -685,7 +685,7 @@ namespace Titanium.Web.Proxy.StreamExtended.Network
 
             return ((TaskResult<int>)asyncResult).Result;
         }
-        
+
         /// <summary>
         /// Fix the .net bug with SslStream slow WriteAsync
         /// https://github.com/justcoding121/Titanium-Web-Proxy/issues/495
