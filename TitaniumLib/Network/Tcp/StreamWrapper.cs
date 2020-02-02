@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -119,7 +118,17 @@ namespace Titanium.Web.Proxy.Network.Tcp
 
 
         List<FakeRequest> Requests = new List<FakeRequest>();
-        public static List<FakeRequest> StaticRequests = new List<FakeRequest>();
+        public static FakeRequest[] StaticRequests
+        {
+            get
+            {
+                return Caches.SelectMany(z => z.Table.ToArray()).ToArray();
+            }
+        }
+
+
+        public static WebCache ActiveCache;
+        public static List<WebCache> Caches=new  List<WebCache>();
         //public static List<FakeRequest> RestoredRequests = new List<FakeRequest>();
 
         public string ExcludeAcceptEncoding(string str)
@@ -189,8 +198,8 @@ namespace Titanium.Web.Proxy.Network.Tcp
                                 a = a1 + a2;
                             }*/
                             Requests.Add(new FakeRequest() { Text = a, Host = Host, Port = Port });
-
-                            StaticRequests.Add(Requests.Last());
+                            ActiveCache.Table.Add(Requests.Last());
+                            //StaticRequests.Add(Requests.Last());
                         }
                     }
                     sbw.Clear();

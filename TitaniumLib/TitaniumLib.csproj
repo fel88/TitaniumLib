@@ -150,6 +150,7 @@
     <Compile Include="Network\Tcp\TcpClientWrapper.cs" />
     <Compile Include="Network\Tcp\TcpConnectionFactory.cs" />
     <Compile Include="Network\Tcp\TcpServerConnection.cs" />
+    <Compile Include="Network\Tcp\WebCache.cs" />
     <Compile Include="Network\WinAuth\Security\Common.cs" />
     <Compile Include="Network\WinAuth\Security\LittleEndian.cs" />
     <Compile Include="Network\WinAuth\Security\Message.cs" />

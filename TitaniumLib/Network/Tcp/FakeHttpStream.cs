@@ -70,7 +70,7 @@ namespace Titanium.Web.Proxy.Network.Tcp
                 }
                 ResponseMem = null;
             }
-            
+
             sem.WaitOne();
             FakeRequest fr = null;
             lock (Requests)
@@ -85,12 +85,20 @@ namespace Titanium.Web.Proxy.Network.Tcp
             var str = Encoding.UTF8.GetString(buffer, offset, count);
 
             var resp1 = "HTTP/1.1 200 OK\r\n";
-            var frr = StreamWrapper.StaticRequests.FirstOrDefault(z => z.Text.Contains(url));
 
-
+            FakeRequest frr = null;
+            
+            foreach (var item in StreamWrapper.Caches)
+            {
+                frr = item.Table.FirstOrDefault(z => z.Text.Contains(url));
+                if (frr != null)
+                {
+                    frr = item.ReadRecord(frr);                    
+                    break;
+                }
+            }
+                        
             var resp2 = "<html><head></head><body><h1> Page not found </h1> there is no page in cache </body></html>\r\n";
-           
-
 
             var b1 = Encoding.UTF8.GetBytes(resp2);
             var resp11 = "Content-Length: " + b1.Length + "\r\n";
